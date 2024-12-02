@@ -1,13 +1,12 @@
-name: Run Every Minute
+name: Test Workflow
 
 on:
-  schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   test_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the current time
-        run: echo "The current time is $(date)"
+      - name: Print a message
+        run: echo "GitHub Actions are working!"
