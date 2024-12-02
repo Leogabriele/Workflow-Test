@@ -1,12 +1,14 @@
-name: Test Workflow
+name: Scheduled and Manual Workflow
 
 on:
-  workflow_dispatch:  # Allows manual triggering
+  schedule:
+    - cron: '*/1 * * * *'  # Run every 1 minute
+  workflow_dispatch:       # Allows manual trigger
 
 jobs:
   test_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print a message
-        run: echo "GitHub Actions are working!"
+      - name: Print the current time
+        run: echo "The current time is $(date)"
